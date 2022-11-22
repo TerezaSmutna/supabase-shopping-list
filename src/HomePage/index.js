@@ -1,3 +1,5 @@
+import { ShoppingList } from '../ShoppingList/index.js';
+
 export const HomePage = (props) => {
   const { session } = props;
 
@@ -12,6 +14,8 @@ export const HomePage = (props) => {
     <h1>Nákupní seznam</h1>
     <div class="lists"></div>
   </div>`;
+
+  element.querySelector('.lists').append(ShoppingList({ session: session }));
 
   return element;
 };

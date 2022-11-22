@@ -1,3 +1,4 @@
+import { signOut } from '../functions/auth.js';
 import './style.css';
 
 export const Header = (props) => {
@@ -25,6 +26,20 @@ export const Header = (props) => {
       </div>
     </div>
   `;
+
+  const button = element.querySelector('.btn-logout');
+  if (button) {
+    button.addEventListener('click', () => {
+      signOut().then((response) => {
+        const { error } = response;
+        if (error) {
+          console.log(error);
+        } else {
+          window.location.href = '/login';
+        }
+      });
+    });
+  }
 
   return element;
 };
