@@ -34,10 +34,12 @@ export const RegisterPage = (props) => {
   element.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
     const email = element.querySelector('.email-input').value;
+    
     const password = element.querySelector('.password-input').value;
 
     signUp(email, password).then((response) => {
       const { data, error } = response;
+      console.log(data, error);
       if (error) {
         element.replaceWith(RegisterPage({ error: error.message }));
       } else {

@@ -1,4 +1,5 @@
 import { ShoppingItem } from '../ShoppingItem/index.js';
+import { getShopingItems } from '../functions/db.js';
 import './style.css';
 
 export const ShoppingList = (props) => {
@@ -30,6 +31,11 @@ export const ShoppingList = (props) => {
       }),
     ),
   );
+
+
+  if (items === undefined) {
+    getShopingItems(userId)    
+  }
 
   return element;
 };

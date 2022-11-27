@@ -1,3 +1,4 @@
+import { ShoppingList } from '../ShoppingList/index.js';
 export const HomePage = (props) => {
   const { session } = props;
 
@@ -13,5 +14,10 @@ export const HomePage = (props) => {
     <div class="lists"></div>
   </div>`;
 
+  const listElement = element.querySelector('.lists');
+  listElement.append(ShoppingList({ 
+    session: session 
+  }));
+
   return element;
-};
+  };
